@@ -1,11 +1,18 @@
 
 ## Overview
 
+**DISCLAIMER: THIS IS SAMPLE CODE AND NOT PRODUCTION QUALITY CODE!**
+
+Before running this sample, the BookService sample needs to be running locally
+on your computer or published to the cloud.  For more information, see
+[BookService](https://github.com/appcelerator-developer-relations/BookService)
+
 This sample is a client application that makes HTTP requests to the BookService
 project.  You can view, create, edit and delete books stored in a Mongo backend
 database via the BookService.
 
-This sample runs on either Android 3.0 (API 11) and later or iOS.
+This sample runs on either Android 3.0 (API 11) and later or iOS, and was tested
+against Titanium SDK 3.1.0.GA and Alloy 1.1.2.
 
 This sample provides two sync adapters--REST and Node.ACS.  The REST adapter directly
 makes HTTP requests to the service, while the Node.ACS adapter uses a bindings file
@@ -45,7 +52,7 @@ Then, modify the model file to use either the REST or ACS sync adapter.
 
 Modify `app/model/book.js` to use REST adapter:
 
-  1. Change the `config.adapter.type` to `book_rest`.
+  1. Change the `config.adapter.type` key to `book_rest`.
   2. Change the `config.adapter.base_url` key to the endpoint URL
      of the BookService, for example, `http://localhost:8080/book/`.
 
@@ -53,8 +60,8 @@ Modify `app/model/book.js` to use REST adapter:
 
 ### Using the Node.ACS Sync Adapter
 
-Modify `app/model/book.js` to use ACS adapter.  Change the `config.adapter.type`
-to `book_acs`.
+Modify `app/model/book.js` to use Node.ACS adapter.  Change the `config.adapter.type`
+key to `book_acs`.
 
 Add the following key to your `tiapp.xml` file and replace the URL with your
 endpoint URL for BookService:
@@ -81,11 +88,12 @@ Studio launches the client application on the selected platform.
 The client application uses the native controls of the Android and iOS platform
 to add a book or refresh the table.
 
-  * For Android, use the **Menu** button to add a book or refresh the view.
+  * For Android, use the **Menu** button to activate the action bar.
+    Select `Add` to add a book or `Refresh` to refresh the view.
   * For iOS, use the window's right navigation button (`Add`) to add a book
     and drag the table down to refresh the view.
 
-To close a window, use the **Back** button on the Andorid platform and the
+To close a window, use the **Back** button on the Android platform and the
 window's right navigation button (`Close`) on the iOS platform.
 
 To modify or delete a book, click on the book title in the table, then:

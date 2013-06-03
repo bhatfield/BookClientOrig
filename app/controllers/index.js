@@ -1,4 +1,6 @@
 var library = Alloy.Collections.book;
+library.fetch();
+$.index.open();
 
 function showBook(e) {
 	var book = library.at(e.index);
@@ -8,17 +10,15 @@ function showBook(e) {
 
 function addBook(e) {
 	var add = Alloy.createController('add').getView();
-	add.open();	
+	add.open();
 }
 
 function refreshTable(e) {
 	library.fetch();
 }
 
-library.fetch();
-
-$.index.open();
-
+// Initializes the Android Action Bar
+// Bound to the window's open event
 function loadExtras (e) {
 	if (OS_ANDROID) {
 		$.index.activity.onCreateOptionsMenu = function(e) { 
